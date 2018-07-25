@@ -1,0 +1,34 @@
+{
+  "name": "CryptoBot",
+  "version": "1.0.0",
+  "description": "CryptoBot is a Market Making trading bot",
+  "main": "CryptoBot.js",
+  "scripts": {
+    "start": "node CryptoBot",
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaceyBolman/CryptoBot.git"
+  },
+  "keywords": [
+    "trading",
+    "bot",
+    "market",
+    "maker"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KaceyBolman/CryptoBot/issues"
+  },
+  "dependencies": {
+    "as-table": "^1.0.31",
+    "ccxt": "^1.16.88",
+    "config": "^1.28.1",
+    "jsonfile": "^4.0.0",
+    "numbro": "^1.11.1",
+    "ololog": "^1.1.78",
+    "standard": "^10.0.3",
+    "yargs": "^10.0.3"
+  }
+}
