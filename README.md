@@ -40,7 +40,7 @@ Check out [Sample BOT Trades](https://raw.githubusercontent.com/KaceyBolman/Cryp
 
 ## Supported exchanges?
 
-Right now I have been only using the bot with `binance`, but in theory it will work with any exchange that is on this `CCXT` support list
+Right now I have been only using the bot with `cryptopia`, but in theory it will work with any exchange that is on this `CCXT` support list
 
 ## Known issues?
 
