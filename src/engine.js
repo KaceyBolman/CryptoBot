@@ -326,7 +326,7 @@ module.exports = class Engine {
             }
 
             // Run the order
-            await this.exchange.createOrder(this.market, 'market', 'sell', assetToSell * 1.01)
+            await this.exchange.createOrder(this.market, 'limit', 'sell', assetToSell * 1.01)
           }
 
           // Check if we need to buy some assets
@@ -340,7 +340,7 @@ module.exports = class Engine {
             }
 
             // Run the order
-            await this.exchange.createOrder(this.market, 'market', 'buy', assetToBuy * 1.01)
+            await this.exchange.createOrder(this.market, 'limit', 'buy', assetToBuy * 1.01)
           }
 
           // Temp orders array
