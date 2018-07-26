@@ -58,6 +58,5 @@ typings/
 .env
 
 # No configs in repo
-/config/*.js
 /balance*.json
 /public/*.json
