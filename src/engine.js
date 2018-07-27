@@ -274,9 +274,10 @@ module.exports = class Engine {
 
             this.adjustOrderSize(price)
 
+            let amount = this.orderSize + Math.random() * this.orderSizeRandom
             newOrdersBuy.push({
               symbol: this.market,
-              amount: this.orderSize.toString(),
+              amount: amount.toString(),
               price: price.toString(),
               side: 'buy',
               type: 'limit',
@@ -294,10 +295,11 @@ module.exports = class Engine {
             price += price * this.minWidthPercentIncrement
 
             this.adjustOrderSize(price)
+            let amount = this.orderSize + Math.random() * this.orderSizeRandom
 
             newOrdersSell.push({
               symbol: this.market,
-              amount: this.orderSize.toString(),
+              amount: amount.toString(),
               price: price.toString(),
               side: 'sell',
               type: 'limit',
@@ -522,6 +524,7 @@ module.exports = class Engine {
       this.orderSize = config.get('orderSize')
       this.orderSizeAuto = config.get('orderSize') === 0
       this.orderSizeMultiplier = config.get('orderSizeMultiplier') / 100
+      this.orderSizeRandom = config.get('orderSizeRandom')
 
       // Do we save the report?
       this.saveReport = config.get('saveReport') || true

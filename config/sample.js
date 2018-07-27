@@ -3,10 +3,10 @@ let conf = {
   exchange: 'cryptopia',
   market: 'LUX/BTC',
 
-  // Get the poll settings
-  pollInfo: 2000,
-  pollOrders: 2000,
-  pollReport: 2000,
+  // Get the poll settings by time gap(ms)
+  pollInfo: 8000,
+  pollOrders: 8000,
+  pollReport: 8000,
 
   // Get order settings
   adjustSpread: false,
@@ -19,6 +19,7 @@ let conf = {
   orderCountSellMin: 2,
   orderSize: 0, // ZERO = AUTO USES orderSizeMultiplier * accountBalance
   orderSizeMultiplier: 1, // 0 - 100 % possible values
+  orderSizeRandom: 6, // limit to get Random value for orderSize
   saveReport: true, // Saves a report file in ./public/report.json
   aggressive: true, // Calculate the profit/loss aggressively?
 
