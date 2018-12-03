@@ -51,7 +51,10 @@ function fp (value) {
 
   return _return
 }
-
+function sleep(millisecs) {
+    var initiation = new Date().getTime();
+    while ((new Date().getTime() - initiation) < millisecs);
+}
 module.exports = class Engine {
   constructor (argv) {
     /// Check if we have colors?
@@ -241,12 +244,13 @@ module.exports = class Engine {
         if (
           this.orders.length &&
           (
-            this.orders.length > (this.orderCountBuy + this.orderCountSell) ||
-            this.orders.length < this.orderCountMin ||
-            this.ordersBuy.length < this.orderCountBuyMin ||
-            this.ordersSell.length < this.orderCountSellMin
+            this.orders.length > (this.orderCountBuy + this.orderCountSell)
+            //this.orders.length < this.orderCountMin ||
+            //this.ordersBuy.length < this.orderCountBuyMin ||
+            //this.ordersSell.length < this.orderCountSellMin
           ) // Do we have a balanced order set?
-        ) {
+        )
+ 	{
           try {
             // Get the orderIds
             let orderIds = this.orders.map((order) => {
@@ -263,14 +267,25 @@ module.exports = class Engine {
         }
 
         if (this.orders.length === 0) {
+
+	// Wait for short amount of time before calculate the new best price
+        // Binance max request timed out (10000 ms)
+        sleep(10000);
+
           price = this.fair - (this.fair * this.minWidthPercent / 2)
+
+	sleep(10000);
 
           if (this.adjustSpread && this.bid < price) {
             price = this.bid
           }
 
+	  sleep(10000);
+
           for (let i = 0, len = this.orderCountBuy; i < len; i++) {
             price -= price * this.minWidthPercentIncrement
+
+            sleep(10000);
 
             this.adjustOrderSize(price)
 
@@ -287,12 +302,16 @@ module.exports = class Engine {
 
           price = this.fair + (this.fair * this.minWidthPercent / 2)
 
+	  sleep(10000);
+
           if (this.adjustSpread && this.ask > price) {
             price = this.ask
           }
 
           for (let i = 0, len = this.orderCountSell; i < len; i++) {
             price += price * this.minWidthPercentIncrement
+
+	    sleep(10000);
 
             this.adjustOrderSize(price)
             let amount = this.orderSize + Math.random() * this.orderSizeRandom
