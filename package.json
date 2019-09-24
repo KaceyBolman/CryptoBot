@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "as-table": "^1.0.31",
-    "ccxt": "^1.16.88",
+    "ccxt": "latest",
     "config": "^1.28.1",
     "jsonfile": "^4.0.0",
     "numbro": "^1.11.1",
